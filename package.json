@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "test": "node-dev ./bin/www",
+    "start": "node ./bin/www",
+    "deploy" : "node ./bin/deploy"
   },
   "dependencies": {
     "express": "~4.2.0",
