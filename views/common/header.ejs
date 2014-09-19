@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<!--[if IE 9]><html class="ie9"><![endif]-->
+<!--[if IE 8]><html class="ie8"><![endif]-->
+<!--[if IE 7]><html class="ie7"><![endif]-->
+<!--[if IE 6]><html class="ie6"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html><!--<![endif]-->
+  <head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   
+    <title>我的个人博客</title>		
+    <script type="text/javascript">
+      var Global = {};
+      Global.BOOTSTAMP = new Date().getTime();
+      Global.STATIC_ROOT = "/";
+    </script>
+    
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.ico" size="16x16 32x32">
+	  <link rel="stylesheet" href="/stylesheets/page/index.css">
+	</head>
+	<body>
+    <div id="pagewrap">
+     
+      <% // 整个页面的头部 start %>
+      <div id="header">
+        <div class="header-wrap">
+          <div id="site-logo" class="site-logo">
+            <h1><a href="/">音韵码工</a></h1>
+          </div>
+        <div id="site-description" classs="site-description">专注前端，node.js，<span id="flashLite"></span></div>
+        </div>
+      </div>
+      <% // 整个页面的头部 end %>
+      
+      <% // 头部的导航栏 start %>
+      <div id="navigator" class="navigator">
+        <div class="navigator-wrap">
+          <ul>
+            <li class="active item">
+              <a href="javascript:;">首页</a>
+            </li>
+            <script>
+            (function() {
+              var nav = document.getElementById('navigator');
+              var tabs = nav.getElementsByTagName('li');
+              var tabsLen = tabs.length;
+              var _hasAct = false;
+              for(var i=0; i<tabsLen; i++) {
+                if(tabs[i].className.indexOf('active') != -1) {
+                  _hasAct = true;
+                  break;
+                }
+              }
+              
+              if(!_hasAct) {
+                tabs[0].className += ' active'
+              }
+            })();
+            </script>
+          </ul>
+        </div>
+      </div>
+      <% // 头部的导航栏 end %>
+              
+      <div id="body">
+        <div class="body-wrap clearfix" style="height: 500px;">

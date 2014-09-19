@@ -1,0 +1,45 @@
+body {
+  font: 12px/1.125 Arial,Helvetica,sans-serif;
+  background: white;
+  line-height: 1.4;
+}
+
+input, textarea, select {
+  font-size: 100%;
+  font-family: inherit;
+}
+
+html, body, h1, h2, h3, h4, h5, h6, p, ul, ol, form, button, dl, dt, dd, select, input, textarea {
+  margin: 0;
+}
+
+h3 {
+  font-size: 14px;
+}
+
+h4, h5, h6 {
+  font-size: 1em;
+}
+
+ul, ol {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+/*image with no-border*/
+img {
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+}
+
+input, textarea {
+  outline: none;
+}
+
+i {
+  font-style: normal;
+}
