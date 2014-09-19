@@ -16,14 +16,16 @@ router.get('/', function(req, res) {
   var dbConnection = db.getConnection();
   dbConnection.connect(function() {
     console.log('Get connected !');
-
-    dbConnection.query('select * from mytable;', function(err, rows, fields) {
-      if (err) 
-        throw err;
-
-      console.log('The solution is: ', rows[0].solution);
+    
+    
+    var query = dbConnection.query('SELECT * FROM MYTABLE;');
+    query.on('result', function(row) {
+      console.log(row);
     });
+
+    dbConnection.end(); 
   });
+  
   
   
   
