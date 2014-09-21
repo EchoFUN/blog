@@ -9,20 +9,14 @@
 
 var express = require('express'); router = express.Router();
 
-var db = require('../utils/db');
+var dbConnection = require('../utils/db').getConnection();
 
 router.get('/', function(req, res) {
   
-  var query = db.query('SELECT * FROM MYTABLE;');
+  var query = dbConnection.query('select * from mytable;');
   query.on('result', function(row) {
-    console.log(row);
+    res.render('index');  
   });
-
-  dbConnection.end(); 
-  
-  
-  
-  res.render('index');
 });
 
 module.exports = router;

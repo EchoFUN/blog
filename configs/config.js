@@ -6,7 +6,7 @@
  * 
  */
 
-exports.config = {
+module.exports = {
   site : {
 
     // 网站名称
@@ -27,13 +27,5 @@ exports.config = {
     PAGE_COUNT : 10
   }, 
  
-  db : {
-
-    DB_HOST : '127.0.0.1',
-
-    // 数据库名称
-    DB_NAME : 'yymg'
-  },
-
   SESSION_SECRET : '音韵码工'
 }; 
