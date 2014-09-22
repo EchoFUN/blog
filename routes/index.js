@@ -9,14 +9,16 @@
 
 var express = require('express'); router = express.Router();
 
-var dbConnection = require('../utils/db').getConnection();
+// var dbConnection = require('../utils/db').getConnection();
 
 router.get('/', function(req, res) {
   
-  var query = dbConnection.query('select * from mytable;');
+  /* var query = dbConnection.query('select * from mytable;');
   query.on('result', function(row) {
-    res.render('index');  
-  });
+  
+  }); */
+  
+  res.render('index');  
 });
 
 module.exports = router;
