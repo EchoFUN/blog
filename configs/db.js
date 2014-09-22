@@ -14,7 +14,9 @@ var dbConfig = {
   'user': 'root',
   
   // 数据库连接名称
-  'database': 'learn'
+  'database': 'yymg',
+  
+  'charset': 'utf8_general_ci'
   
 };
 

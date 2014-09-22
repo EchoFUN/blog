@@ -6,19 +6,20 @@
  * 
  */
  
+var express = require('express');
+var async = require('async');
 
-var express = require('express'); router = express.Router();
+var router = express.Router();
 
-// var dbConnection = require('../utils/db').getConnection();
+// 获取链接
+var dbConnection = require('../utils/db').getConnection();
 
 router.get('/', function(req, res) {
   
-  /* var query = dbConnection.query('select * from mytable;');
-  query.on('result', function(row) {
+  var query = dbConnection.query('select * from menu;', function(err, rows) {
+    res.render('index');  
+  });
   
-  }); */
-  
-  res.render('index');  
 });
 
 module.exports = router;

@@ -1,0 +1,10 @@
+/**
+ *
+ *
+ *
+ *
+ */
+
+module.exprts.getPostsAll = function() {
+  
+};
