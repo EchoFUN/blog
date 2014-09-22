@@ -1,0 +1,5 @@
+post 
+
+id -- 文章的id
+title -- 文章的标题
+content -- 文章的内容
