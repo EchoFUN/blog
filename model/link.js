@@ -10,6 +10,6 @@
 var utils = require('../utils/utils');
 var dbConnection = require('../utils/db').getConnection();
 
-module.exports.getPostsAll = function(callback) {
-  dbConnection.query(utils.getSQLContent('postall'), callback);
+module.exports.getLinksAll = function(callback) {
+  dbConnection.query(utils.getSQLContent('linkall'), callback);
 };
