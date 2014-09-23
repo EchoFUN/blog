@@ -9,16 +9,18 @@
 var express = require('express');
 var async = require('async');
 
-var siteModel = require('../model/site');
+var menuModel = require('../model/menu');
 
 var router = express.Router();
 
 router.get('/', function (req, res) {
 
-  siteModel.getMenusAll(function () {
-    res.render('index');
-  })
-
+  async.parallel([menuModel.getMenusAll], function(err, content) {
+    res.render('index', {
+      menus: content[0][0]
+    });
+  });
+  
 });
 
 module.exports = router;

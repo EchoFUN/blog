@@ -36,9 +36,13 @@
       <div id="navigator" class="navigator">
         <div class="navigator-wrap">
           <ul>
-            <li class="active item">
-              <a href="javascript:;">首页</a>
-            </li>
+            <% if(menus) { %>
+              <% for(var i = 0; i < menus.length; i++) { %>
+                <li class="item">
+                  <a href="javascript:;"><%= menus[i].title %></a>
+                </li>
+              <% } %>
+            <% } %>
             <script>
             (function() {
               var nav = document.getElementById('navigator');
