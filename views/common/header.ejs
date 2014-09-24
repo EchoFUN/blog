@@ -39,7 +39,7 @@
             <% if(menus) { %>
               <% for(var i = 0; i < menus.length; i++) { %>
                 <li class="item">
-                  <a href="javascript:;"><%= menus[i].title %></a>
+                  <a href="<%= menus[i].url %>"><%= menus[i].title %></a>
                 </li>
               <% } %>
             <% } %>
@@ -67,4 +67,4 @@
       <% // 头部的导航栏 end %>
               
       <div id="body">
-        <div class="body-wrap clearfix" style="height: 900px;">
+        <div class="body-wrap clearfix">
