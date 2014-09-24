@@ -2,7 +2,27 @@
 <% // 引入头部文件 %>
 <% include common/header %>
 
-  <span>相聚无时，后会有期 ... </span>
+  <div class="main article-list fl">
+    <% if (typeof posts != 'undefined') { %>
+      <% for(var i = 0; i < posts.length; i++) { %>
+        
+        <% var pid = posts[i].id %>
+        <div class="post" id="post-<%= pid %>">
+          <h2><a href="/post?pid=<%= posts[i].id %>"><%= posts[i].title %></a></h2>
+          <p class="post-meta">
+            <% var date = new Date(parseInt(posts[i].date)); %>
+            <% var month = date.getMonth() + 1 + ''; if (month.length == 1) { month = '0' + month; } %>
+            
+            <span class="date"><%= date.getFullYear() %>年<%= month %>月<%= date.getDate() %>日</span>
+            <span class="author"><%= posts[i].author %></span>
+          </p>
+          <div class="post-content"><%- posts[i].content %></div>
+          <p class="more"></p>
+        </div>  
+      
+      <% } %>
+    <% } %>
+  </div>
   
   <div class="sidebar fr">
       <% include common/widgets %>

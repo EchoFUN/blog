@@ -24,7 +24,8 @@ router.get('/', function (req, res) {
     
     res.render('index', {
       menus: content[0][0],
-      links: content[1][0]
+      links: content[1][0],
+      posts: content[2][0]
     });
   });
   
