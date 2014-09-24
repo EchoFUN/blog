@@ -16,7 +16,11 @@
     
     <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/favicon.ico">
     <link rel="icon" href="/favicon.ico" size="16x16 32x32">
-	  <link rel="stylesheet" href="/stylesheets/page/index.css">
+    <% if(typeof css != 'undefined') { %>
+	    <link rel="stylesheet" href="/stylesheets/page/<%= css %>.css">
+	  <% } else { %>
+	    <link rel="stylesheet" href="/stylesheets/page/index.css">
+	  <% } %>
 	</head>
 	<body>
     <div id="pagewrap">

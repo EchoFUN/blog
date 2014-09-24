@@ -1,9 +1,14 @@
+          <div class="sidebar fr">
+            <% include widgets %>
+          </div>
         </div>
       </div>
       <div id="footer">
         <div class="footer-wrap">&copy; 音韵码工 2013 <br />Powered by <a target="_blank" href="http://nodejs.org">node.js</a> created by <a href="mailto:xukai.ken@gmail.com">EchoFUN</a></div>
       </div>
     </div>
-    <script type="text/javascript" data-main="/javascripts/page/home" src="/javascripts/lib/r.js"></script>
+    <% if(typeof javascript != 'undefined') { %>
+      <script type="text/javascript" data-main="/javascripts/page/<%= javascript %>" src="/javascripts/lib/r.js"></script>
+    <% } %>
   </body>
 </html>

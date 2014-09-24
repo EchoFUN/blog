@@ -1,0 +1,27 @@
+
+<% var javascript = 'post'; %>
+
+<% // 引入头部文件 %>
+<% include common/header %>
+
+<div class="main article-view fl">
+  <% if(post) { %>
+    <h1><%= post.title %></h1>
+    <p class="post-meta">
+      <% var date = new Date(parseInt(post.date)); %>
+    	<% var month = date.getMonth() + 1 + '';
+        if (month.length == 1) {
+          month = '0' + month;
+      } %>
+      
+      <span class="date"><%= date.getFullYear() %>年<%= month %>月<%= date.getDate() %>日</span>
+      <span class="author"><%= post.author %></span>
+    </p>
+    <div class="post-content"><%- post.content %></div>
+  <% } else { %>
+    <p>未找到相应的文章！</p>
+  <% } %>
+</div>
+
+<% // 引入尾部文件 %>
+<% include common/footer %>

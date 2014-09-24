@@ -7,12 +7,12 @@
  */
 
 var index = require('./routes/index');
-var users = require('./routes/users');
+var post = require('./routes/post');
 
 module.exports = function(app) {
   
   
   app.use('/', index);
-  app.use('/users', users);
+  app.use('/post', post);
   
 };

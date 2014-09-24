@@ -1,1 +1,1 @@
-select * from post;
+select * from post order by post.date desc limit 0, 4;
