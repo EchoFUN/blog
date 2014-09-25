@@ -1,1 +1,1 @@
-select * from post order by post.date desc limit 0, 4;
+select * from post order by post.date desc limit <%= start %>, <%= end %>;

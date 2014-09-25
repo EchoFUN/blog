@@ -2,7 +2,7 @@
 
 <% // 引入头部文件 %>
 <% include common/header %>
-
+  
   <div class="main article-list fl">
     <% if (typeof posts != 'undefined') { %>
       <% for(var i = 0; i < posts.length; i++) { %>
@@ -22,6 +22,14 @@
         </div>  
       
       <% } %>
+    <% } %>
+      
+     <% // 分页按钮 %>
+     <% if(posts.length < postCount) { %>
+      <p class="pagination">
+        <% if(currentPage > 1 && currentPage <= Math.ceil(postCount / PAGE_COUNT)) { %><span class="prev"><a href="<%= '/?page=' + (currentPage - 1) %>">上一页</a></span><% } %>
+        <% if(currentPage >= 1 && currentPage < Math.ceil(postCount / PAGE_COUNT)) { %><span class="next"><a href="<%= '/?page=' + (currentPage + 1) %>">下一页</a></span><% } %>
+      </p>
     <% } %>
   </div>
   
