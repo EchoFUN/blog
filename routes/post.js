@@ -46,4 +46,33 @@ router.get('/', function (req, res) {
   
 });
 
+router.post('/message', function(req, res) {
+  var pid = req.query.pid, message = req.query.message;
+  
+  
+});
+
 module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
