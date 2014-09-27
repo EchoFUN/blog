@@ -22,10 +22,10 @@ var getPageData = function(callback) {
 };
 
 router.get('/', function (req, res) {
+  var postId = req.query.pid;
   
-  // 获取这个当前的文章的数据信息
+  // 获取这个当前的文章的数据信息（评论标签等等）
   var getCurrentPost = function(callback) {
-    var postId = req.query.pid;
     if (!postId) {
       callback();
     } else {
@@ -33,28 +33,42 @@ router.get('/', function (req, res) {
     }
   };
   
-  async.parallel([getPageData, getCurrentPost], function(err , content) {
+  var getCurretComments = function(callback) {
+    if (!postId) {
+      callback();
+    } else {
+      commentModel.getCommentsById(postId, callback);
+    }
+  };
+  
+  async.parallel([getPageData, getCurrentPost, getCurretComments], function(err , content) {
     if (err) {
       throw err;
     }
     
     res.render('post', {
+      post: content[1][0][0],
       menus: content[0][0][0],
       links: content[0][1][0],
-      post: content[1][0][0],
+      comments: content[2][0]
     });
   });
   
 });
 
 router.post('/message', function(req, res) {
-  var pid = req.query.pid, message = req.query.message;
+  var pid = req.body.pid, message = req.body.message, author = req.body.author, mail = req.body.mail, webside = req.body.webside;
   
-  commentModel.insertMessage({
-    pid : pid,
-    message: message
-  }, function() {
+  var persistQuery = req.body;
+  persistQuery.date = new Date().getTime();
+  persistQuery.approved = 0;
+  
+  commentModel.insertMessage(persistQuery, function(err, content) {
+    if (err) {
+      throw err;
+    }
     
+    debugger;
     var respond = {
       code: 0,
       date: {

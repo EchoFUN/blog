@@ -21,6 +21,31 @@
     
     <!-- 评论内容 -->
     <div class="comments-area" id="comments-area">
+      <% if(comments.length) { %>
+        <h3 id="comments-title">关于“<%= post.title %>”的<%= comments.length %>个想法</h3>
+        <div class="comment-list" id="comment-list">
+          <% for(var i in comments) { %>
+            <% var comment = comments[i]; %>
+            <div class="comment-item <%= ((i % 2) == 1)? 'even' : 'odd' %>">
+              <div class="reply-comment right">
+                <a href="javascript:;">回复</a>
+              </div>
+              <div class="avatar"><img height="38" width="38" src="http://cdn.v2ex.com/static/img/avatar_normal.png" /></div>
+              <div class="comment-info">
+                <div class="name"><a href="<%= (comment.webside)?comment.webside:"javascript:;" %>"><%= comment.name %></a>&nbsp;说：</div>
+                <% var date = comment.date, m = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Spt', 'Oct', 'Nov', 'Dec']; %>
+                <% if (typeof date != 'undefined') { %>
+                  <% var date = new Date(parseInt(date)); %>
+                  <div class="date"><%= m[date.getMonth()] %>&nbsp;<%= date.getDate() %>,&nbsp;<%= date.getFullYear() %>&nbsp;at&nbsp;<%= date.getHours() %>:<%= date.getMinutes() %></div>
+                <% } %>
+              </div>
+              <div class="clear"></div>
+              <div class="comment-content"><%- comment.content %></div>
+            </div>
+          <% } %>
+        </div>
+      <% } %>
+       
       <div id="respond" class="respond">
         <h3 id="reply-title">回复</h3>
         <div class="respond-content">

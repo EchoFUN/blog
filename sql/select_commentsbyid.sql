@@ -1,0 +1,1 @@
+select * from comment where pid = <%= pid %> and approved = 1

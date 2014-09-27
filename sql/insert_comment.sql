@@ -1,1 +1,1 @@
-INSERT INTO comment (`pid`, `name`, `email`, `webside`, `content`, `date`, `approved`) VALUES (<%= pid %>, <%= name %>, <%= email %>, <%= webside %>, <%= content %>, <%= date %>, <%= approve %>);
+INSERT INTO comment (`pid`, `name`, `email`, `webside`, `content`, `date`, `approved`) VALUES (<%= pid %>, "<%= author %>", "<%= mail %>", "<%= webside %>", "<%= comment %>", "<%= date %>", <%= approved %>);
