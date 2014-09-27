@@ -2,7 +2,7 @@ require.config({
   baseUrl : '/javascripts'
 });
 
-require(['lib/jquery', 'module/general', 'module/interface', 'util/request'], function($, general, url, request) {
+require(['lib/jquery', 'module/general', 'module/interface', 'util/request', 'widget/Dialog'], function($, general, url, request, Dialog) {
   
   var jQrespond = $('#respond-form');
   
@@ -17,14 +17,13 @@ require(['lib/jquery', 'module/general', 'module/interface', 'util/request'], fu
         comment = $.trim(this.comment.value);
     
     if(author.length == 0 || mail.length == 0 || webside.length == 0 || comment.length == 0) {
+      new Dialog({
+        content: '请完善资料哦，亲~'
+      });
       return;
     }
     
-    request.post(url.addComments, {
-      
-    }, function(ret) {
-      
-    });
+    request.post(url.addComments, jQrespond.serialize() + '&pid=' + jQrespond.data('pid')).success();
   };
   
   

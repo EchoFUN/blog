@@ -12,6 +12,7 @@ var async = require('async');
 var menuModel = require('../model/menu');
 var linkModel = require('../model/link');
 var postModel = require('../model/post');
+var commentModel = require('../model/comment');
 
 var router = express.Router();
 
@@ -40,7 +41,7 @@ router.get('/', function (req, res) {
     res.render('post', {
       menus: content[0][0][0],
       links: content[0][1][0],
-      post: content[1][0][0]
+      post: content[1][0][0],
     });
   });
   
@@ -49,6 +50,19 @@ router.get('/', function (req, res) {
 router.post('/message', function(req, res) {
   var pid = req.query.pid, message = req.query.message;
   
+  commentModel.insertMessage({
+    pid : pid,
+    message: message
+  }, function() {
+    
+    var respond = {
+      code: 0,
+      date: {
+
+      }
+    };
+    res.end(JSON.stringify(respond));
+  });
   
 });
 

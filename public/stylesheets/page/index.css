@@ -1,5 +1,6 @@
 
 @import url("../global.css");
+@import url("../module/dialog.css");
 
 body {
 	color: #444;
@@ -297,48 +298,60 @@ div.post-content ol {
 }
 
 .respond-content {
-	padding: 10px 20px;
-	background-color: #FAFAFA;
-	border: 1px solid #E6E6E6;
-	margin-top: 0.5em;
+  padding: 10px 20px;
+  background-color: #FAFAFA;
+  border: 1px solid #E6E6E6;
+  margin-top: 0.5em;
+  padding-bottom: 20px;
 }
 
 .respond-content .item {
-	margin: 1em 0;
+  margin-top: 12px;
 }
 
 .respond-content .item input {
-	width: 300px;
-	margin: 5px 0;
-	padding: 4px 10px;
-	border: 1px solid #CACACA;
-	background: white;
-	vertical-align: middle;
+  width: 300px;
+  border: 1px solid #CACACA;
+  background: #ffffff;
+  height: 26px;
+  line-height: 26px;
+  padding-left: 5px;
 }
 
 .respond-content .item input.submit {
-	padding: 0 15px;
-	border: 1px solid #CACACA;
-	background: #FF6D16 url('/images/button.png') repeat-x top;
-	color: white;
-	font-weight: bold;
-	line-height: 24px;
-	vertical-align: middle;
-	width: 120px;
-	cursor: pointer;
-	border: 0;
+  background-color: #ff6000;
+  color: #fff;
+  border: 0;
+  height: 34px;
+  display: inline-block;
+  line-height: 34px;
+  padding: 0 20px;
+  width: 100px;
+  text-align: center;
+}
+
+.respond-content .item input.submit:hover {
+  background-color: #cd5500;
 }
 
 .respond-content .item label {
-	font-weight: bold;
-	width: 53px;
-	display: inline-block;
+  font-weight: bold;
+  display: block;
+  float: left;
+  line-height: 34px;
+  width: 45px;
+  height: 32px;
+}
+
+.respond-content .item .input {
+  float: left;
 }
 
 .respond-content .item textarea {
-	resize: vertical;
-	padding: 4px 10px;
-	border: 1px solid #CACACA;
+  resize: vertical;
+  border: 1px solid #CACACA;
+  padding: 10px 5px;
+  display: block;
 }
 
 p.tags {
