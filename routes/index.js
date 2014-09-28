@@ -12,6 +12,7 @@ var async = require('async');
 var menuModel = require('../model/menu');
 var linkModel = require('../model/link');
 var postModel = require('../model/post');
+var commentModel = require('../model/comment');
 var config = require('../configs/config');
 
 var router = express.Router();
@@ -42,6 +43,9 @@ router.get('/', function (req, res) {
     if (err) {
       throw err;
     }
+
+    
+    commentModel.getCommentsCount();  
     
     res.render('index', {
       menus: content[0][0][0],
