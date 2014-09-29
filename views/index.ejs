@@ -16,6 +16,7 @@
             
             <span class="date"><%= date.getFullYear() %>年<%= month %>月<%= date.getDate() %>日</span>
             <span class="author"><%= posts[i].author %></span>
+            <span class="comments"><a href="javascript:;" title="<%= posts[i].title %>上有<%= posts[i].cmtCount || 0 %>条评论"><%= posts[i].cmtCount || 0 %></a></span>
           </p>
           <div class="post-content"><%- posts[i].content %></div>
           <p class="more"></p>

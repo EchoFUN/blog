@@ -43,20 +43,36 @@ router.get('/', function (req, res) {
     if (err) {
       throw err;
     }
-
     
-    commentModel.getCommentsCount();  
-    
-    res.render('index', {
-      menus: content[0][0][0],
-      links: content[0][1][0],
-      posts: content[1][0],
+    // 获取页面上所有文章的评论数目
+    var posts = content[1][0];
+    var pids = [];
+    for(var i = 0; i < posts.length; i++) {
+      pids.push(posts[i].id);
+    }
+    commentModel.getCommentsCount(pids.join(', '), function(err, cmtsCount) {
+      if (err) {
+        throw err;
+      }
       
-      // 分页相关内容
-      postCount: content[2][0][0]['count(*)'],
-      currentPage: page,
-      PAGE_COUNT: PAGE_COUNT
-    });
+      for(var i = 0; i < posts.length; i++) {
+        for(var j = 0; j < cmtsCount.length; j++) {
+          if (posts[i].id == cmtsCount[j].pid) {
+            posts[i].cmtCount = cmtsCount[j].count;
+          }
+        }
+      }
+      res.render('index', {
+        menus: content[0][0][0],
+        links: content[0][1][0],
+        posts: posts,
+        
+        // 分页相关内容
+        postCount: content[2][0][0].count,
+        currentPage: page,
+        PAGE_COUNT: PAGE_COUNT
+      });
+    });  
   });
   
 });

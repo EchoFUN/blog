@@ -22,3 +22,12 @@ module.exports.getCommentsById = function(pid, callback) {
   
   dbConnection.query(sqlContent, callback);
 };
+
+// 获取所有的评论数目
+module.exports.getCommentsCount = function(pids, callback) {
+  var sqlContent = ejs.render(utils.getSQLContent('commentscount'), {
+    pids: pids
+  });
+  
+  dbConnection.query(sqlContent, callback);
+};

@@ -1,1 +1,1 @@
-select count(*) from post;
+select count(*) count from post;
