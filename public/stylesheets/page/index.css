@@ -382,7 +382,7 @@ p.pagination .prev a {
 	display: inline-block;
 	line-height: 24px;
 	padding: 0 0 0 19px;
-	background-position: -2px -120px;
+  background-position: -3px -118px;
 }
 
 p.pagination .next a {
