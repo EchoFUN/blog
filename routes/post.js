@@ -68,12 +68,8 @@ router.post('/message', function(req, res) {
       throw err;
     }
     
-    debugger;
     var respond = {
       code: 0,
-      date: {
-
-      }
     };
     res.end(JSON.stringify(respond));
   });
