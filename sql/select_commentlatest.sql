@@ -1,0 +1,1 @@
+select count(*) count from comment where pid = <%= pid %> and name = "<%= author %>" and content = "<%= message %>" and approved = 0;
