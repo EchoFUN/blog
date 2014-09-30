@@ -19,7 +19,7 @@ var router = express.Router();
 
 // 获取页面上的通用数据
 var getPageData = function(callback) {
-  async.parallel([menuModel.getMenusAll, linkModel.getLinksAll], callback);
+  async.parallel([menuModel.getMenusAll, linkModel.getLinksAll, postModel.getArchives], callback);
 };
 
 // 按照分页的方式展示出所有的文章列表

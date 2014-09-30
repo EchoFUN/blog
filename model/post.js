@@ -37,3 +37,8 @@ module.exports.getPostCount = function(callback) {
   
   dbConnection.query(sqlContent, callback);
 };
+
+// 获取所有的归档的文章
+module.exports.getArchives = function(callback) {
+  
+};
