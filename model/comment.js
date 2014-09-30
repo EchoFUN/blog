@@ -34,5 +34,11 @@ module.exports.getCommentsCount = function(pids, callback) {
 
 // 获取最后的一条评论信息
 module.exports.getlastComment = function(pid, author, content, callback) {
+  var sqlContent = ejs.render(utils.getSQLContent('commentlatest'), {
+    pid: pid,
+    author: author,
+    message: content
+  });
   
+  dbConnection.query(sqlContent, callback);
 };

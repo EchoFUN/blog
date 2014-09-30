@@ -57,8 +57,6 @@ router.get('/', function (req, res) {
 });
 
 router.post('/message', function(req, res) {
-  var pid = req.body.pid, message = req.body.message, author = req.body.author, mail = req.body.mail, webside = req.body.webside;
-  
   var persistQuery = req.body;
   persistQuery.date = new Date().getTime();
   persistQuery.approved = 0;
@@ -68,22 +66,26 @@ router.post('/message', function(req, res) {
   };
   
   // 首先获取上一条相同的评论
-  /* commentModel.getlastComment(pid, author, message, function(err, content) {
+  commentModel.getlastComment(req.body.pid, req.body.author, req.body.comment, function(err, content) {
     if (err) {
       throw err;
     }
     
-    
-  }); */
-  
-  
-  commentModel.insertMessage(persistQuery, function(err, content) {
-    if (err) {
-      throw err;
+    if (content[0].count == 0) {
+      commentModel.insertMessage(persistQuery, function(err, content) {
+        if (err) {
+          throw err;
+        }
+        res.end(JSON.stringify(respond));
+      });
+    } else {
+      respond.code = 1;
+      respond.msg = '不要重复提交评论~';
+      res.end(JSON.stringify(respond));
     }
-    
-    res.end(JSON.stringify(respond));
   });
+  
+  
   
 });
 
