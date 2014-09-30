@@ -63,14 +63,25 @@ router.post('/message', function(req, res) {
   persistQuery.date = new Date().getTime();
   persistQuery.approved = 0;
   
+  var respond = {
+    code: 0
+  };
+  
+  // 首先获取上一条相同的评论
+  /* commentModel.getlastComment(pid, author, message, function(err, content) {
+    if (err) {
+      throw err;
+    }
+    
+    
+  }); */
+  
+  
   commentModel.insertMessage(persistQuery, function(err, content) {
     if (err) {
       throw err;
     }
     
-    var respond = {
-      code: 0,
-    };
     res.end(JSON.stringify(respond));
   });
   

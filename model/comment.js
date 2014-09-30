@@ -31,3 +31,8 @@ module.exports.getCommentsCount = function(pids, callback) {
   
   dbConnection.query(sqlContent, callback);
 };
+
+// 获取最后的一条评论信息
+module.exports.getlastComment = function(pid, author, content, callback) {
+  
+};

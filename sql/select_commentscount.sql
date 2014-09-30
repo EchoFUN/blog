@@ -1,0 +1,1 @@
+select pid, count(*) count from comment where approved = 1 and pid in(<%= pids %>) group by pid;

@@ -23,8 +23,8 @@ require(['lib/jquery', 'module/general', 'module/interface', 'util/request', 'wi
       return;
     }
 
-    request.post(url.addComments, jQrespond.serialize() + '&pid=' + jQrespond.data('pid')).success(function (ret) {
-      if (ret.cdoe == 0) {
+    request.post(url.addComments, jQrespond.serialize() + '&pid=' + jQrespond.data('pid'), null,'json').done(function (ret) {
+      if (ret.code == 0) {
         new Dialog({
           content: '评论成功！需要管理员审核才能显示！'
         });
