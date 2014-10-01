@@ -1,1 +1,1 @@
-select * from post where id = <%= postId %>;
+select * from post where id = "<%= postId %>";

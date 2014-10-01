@@ -26,19 +26,11 @@ router.get('/', function (req, res) {
   
   // 获取这个当前的文章的数据信息（评论标签等等）
   var getCurrentPost = function(callback) {
-    if (!postId) {
-      callback();
-    } else {
-      postModel.getPostById(postId, callback);
-    }
+    postModel.getPostById(postId, callback);
   };
   
   var getCurretComments = function(callback) {
-    if (!postId) {
-      callback();
-    } else {
-      commentModel.getCommentsById(postId, callback);
-    }
+    commentModel.getCommentsById(postId, callback);
   };
   
   async.parallel([getPageData, getCurrentPost, getCurretComments], function(err , content) {
