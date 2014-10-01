@@ -1,0 +1,1 @@
+select date from yymg.post order by date desc;
