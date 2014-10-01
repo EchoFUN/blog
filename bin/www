@@ -23,7 +23,7 @@ var _userCluster = function(callback) {
   }
 };
 
-if (process.env.NODE_ENV != 'production') {
+if (process.env.NODE_ENV == 'production') {
   _userCluster(function() {
     http.createServer(app).listen(app.get('port'), function() {
       debug('Express server listening on port ' + this.address().port);
