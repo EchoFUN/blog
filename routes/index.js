@@ -19,7 +19,7 @@ var router = express.Router();
 
 // 获取页面上的通用数据
 var getPageData = function(callback) {
-  async.parallel([menuModel.getMenusAll, linkModel.getLinksAll, postModel.getArchives], callback);
+  async.parallel([menuModel.getMenusAll, linkModel.getLinksAll, postModel.getArchives, postModel.getRecentPosts], callback);
 };
 
 // 按照分页的方式展示出所有的文章列表
@@ -65,6 +65,8 @@ router.get('/', function (req, res) {
       res.render('index', {
         menus: content[0][0][0],
         links: content[0][1][0],
+        archives: content[0][2],
+        rectPosts: content[0][3],
         posts: posts,
         
         // 分页相关内容

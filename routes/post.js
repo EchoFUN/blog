@@ -18,7 +18,7 @@ var router = express.Router();
 
 // 获取页面上的通用数据
 var getPageData = function(callback) {
-  async.parallel([menuModel.getMenusAll, linkModel.getLinksAll], callback);
+  async.parallel([menuModel.getMenusAll, linkModel.getLinksAll, postModel.getArchives, postModel.getRecentPosts], callback);
 };
 
 router.get('/', function (req, res) {
@@ -50,6 +50,8 @@ router.get('/', function (req, res) {
       post: content[1][0][0],
       menus: content[0][0][0],
       links: content[0][1][0],
+      rectPosts: content[0][3],
+      archives: content[0][2],
       comments: content[2][0]
     });
   });

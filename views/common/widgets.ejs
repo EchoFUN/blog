@@ -14,13 +14,12 @@
   </div>
 </div>
 
-<% var rectPosts = result.rectPosts; %>
 <% if(typeof rectPosts != 'undefined' && rectPosts.length != 0) {%>
 <div class="widget">
   <h3>近期文章</h3>
   <ul>
   	<% for(var j=0; j<rectPosts.length; j++) { %>
-      <li><a target="_blank" href="<%= site.SITE_BASE_URL + '/post?pid=' + rectPosts[j]._id %>" title="<%= rectPosts[j].title %>"><%= rectPosts[j].shortTitle %></a></li>
+      <li><a href="<%= '/post?pid=' + rectPosts[j].id %>" title="<%= rectPosts[j].title %>"><%= rectPosts[j].shortTitle %></a></li>
   	<% } %>
   </ul>
 </div>    
@@ -50,13 +49,11 @@
 </div>
 <% } %>
 
-<% var archives = result.archives; %>
 <% if(typeof archives != 'undefined' && archives.length != 0) { %>
 <div class="widget">        
   <h3>文章归档</h3>       
   <ul>
   	<% for(var j=0; j<archives.length; j++) { %>
-  	<!-- <li><a href="<%= site.SITE_BASE_URL + '/post?archive=' + archives[j].full.getTime() %>"><%= archives[j].summary %></a></li> -->
   	<li><a href="javascript:;" class="underConstruct"><%= archives[j].summary %></a></li>
   	<% } %>
   </ul>

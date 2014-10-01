@@ -1,1 +1,1 @@
-select date from yymg.post order by date desc;
+select date from post order by date desc;
