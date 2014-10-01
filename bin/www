@@ -2,9 +2,33 @@
 
 var debug = require('debug')('blog');
 var app = require('../app');
+var cluster = require('cluster')
 
 app.set('port', process.env.PORT || 3000);
 
-var server = app.listen(app.get('port'), function() {
-  debug('Express server listening on port ' + server.address().port);
-});
+var _userCluster = function(callback) {
+  var numCPUs = os.cpus().length;
+  if (cluster.isMaster) {
+    for (var i = 0; i < numCPUs; i++) {
+      cluster.fork();
+    }
+
+    cluster.on('exit', function(worker, code, signal) {
+      console.log('worker ' + worker.process.pid + ' died');
+    });
+  } else {
+    callback();
+  }
+};
+
+if (process.env.NODE_ENV == 'production') {
+  _userCluster(function() {
+    app.listen(app.get('port'), function() {
+      debug('Express server listening on port ' + this.address().port);
+    });
+  });
+} else {
+  app.listen(app.get('port'), function() {
+    debug('Express server listening on port ' + this.address().port);
+  });
+}

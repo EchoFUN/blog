@@ -4,7 +4,8 @@
   "private": true,
   
   "scripts": {
-    "start": "node-dev ./bin/www"
+    "start": "node-dev ./bin/www",
+    "start": "NODE_ENV=production forever start -l /var/log/node/forever.log -o /var/log/node/out.log -e /var/log/node/err.log -a bin/www"
   },
   
   "dependencies": {
