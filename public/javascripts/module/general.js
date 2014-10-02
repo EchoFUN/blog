@@ -37,4 +37,6 @@ define(['lib/jquery'], function ($) {
     jQwindow.scroll(scrollEvent);
   };
   bindEvents();
+  
+  scrollEvent.call(window);
 });

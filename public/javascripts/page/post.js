@@ -16,18 +16,24 @@ require(['lib/jquery', 'module/general', 'module/interface', 'util/request', 'wi
         webside = $.trim(this.webside.value),
         comment = $.trim(this.comment.value);
 
-    if (author.length == 0 || mail.length == 0 || webside.length == 0 || comment.length == 0) {
+    if (author.length == 0 || mail.length == 0 || comment.length == 0) {
       new Dialog({
         content: '请完善资料哦，亲~'
       });
       return;
     }
-
+    
+    var self = this;
     request.post(url.addComments, jQrespond.serialize() + '&pid=' + jQrespond.data('pid'), null,'json').done(function (ret) {
       if (ret.code == 0) {
         new Dialog({
           content: '评论成功！需要管理员审核才能显示！'
         });
+        
+        self.mail.value = '';
+        self.author.value = '';
+        self.webside.value = '';
+        self.comment.value = '';
       } else {
         new Dialog({
           content: ret.msg

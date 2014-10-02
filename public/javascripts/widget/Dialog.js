@@ -1,5 +1,7 @@
 define(['lib/jquery', 'lib/mustache', 'tpl/tpl'], function($, mustache, tpl) {
 
+  var dialogInstance;
+  
   /**
    *
    * @param {Object} opts
@@ -19,6 +21,11 @@ define(['lib/jquery', 'lib/mustache', 'tpl/tpl'], function($, mustache, tpl) {
     this.$opts = opts;
     this.$ready();
     this.$constructFrame();
+    
+    if (dialogInstance) {
+      dialogInstance.close();
+    }
+    dialogInstance = this;
     return this;
   };
 
