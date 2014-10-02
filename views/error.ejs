@@ -1,6 +1,9 @@
 <% if (typeof error != 'undefined') { %>
   <% if (error.status == 404) { %>
     <div class="msg404">404 :( </div>
+  <% } else { %>
+  
+    <%= error.message %>
   <% } %>
 <% } %>
 

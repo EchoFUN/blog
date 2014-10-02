@@ -67,6 +67,7 @@ router.get('/', function (req, res) {
         links: content[0][1][0],
         archives: content[0][2],
         rectPosts: content[0][3],
+        url: req.url,
         posts: posts,
         
         // 分页相关内容
@@ -77,6 +78,18 @@ router.get('/', function (req, res) {
     });  
   });
   
+});
+
+router.get('/about', function (req, res) {
+  async.parallel([getPageData], function(err , content) {
+    res.render('about', {
+      menus: content[0][0][0],
+      links: content[0][1][0],
+      archives: content[0][2],
+      rectPosts: content[0][3],
+      url: req.url,
+    });
+  });
 });
 
 module.exports = router;

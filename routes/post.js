@@ -44,7 +44,8 @@ router.get('/', function (req, res) {
       links: content[0][1][0],
       rectPosts: content[0][3],
       archives: content[0][2],
-      comments: content[2][0]
+      comments: content[2][0],
+      url: req.url,
     });
   });
   

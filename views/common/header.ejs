@@ -52,7 +52,7 @@
           <ul>
             <% if(menus) { %>
               <% for(var i = 0; i < menus.length; i++) { %>
-                <li class="item">
+                <li class="item <% if (menus[i].url == url ) { %>active<% } %>">
                   <a href="<%= menus[i].url %>"><%= menus[i].title %></a>
                 </li>
               <% } %>
