@@ -70,6 +70,7 @@ var structArchives = function(archivesData) {
   }
   return archives;
 };
+
 module.exports.getArchives = function(callback) {
   var sqlContent = utils.getSQLContent('archives');
   

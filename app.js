@@ -13,6 +13,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var map = require('./map');
+var dblogger = require('./utils/dblogger');
 
 var app = express();
 
@@ -25,6 +26,7 @@ app.use(function(req, resp, next) {
   next();
 });
 app.use(logger('dev'));
+app.use(dblogger());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
