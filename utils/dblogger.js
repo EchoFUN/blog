@@ -12,7 +12,8 @@ var modelLog = require('../model/log');
 module.exports = function() {
 
   return function(req, res, next) {
-    if (req.get('accept').indexOf('text/html') != -1) {
+    var acceptStr = req.get('accept');
+    if (acceptStr && acceptStr.indexOf('text/html') != -1) {
 
       //  获取需要的参数
       var vector = Number(req.query.f);
