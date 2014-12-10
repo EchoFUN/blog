@@ -1,37 +1,10 @@
 #!/usr/bin/env node
 
-var cluster = require('cluster')
 var debug = require('debug')('blog');
-var http = require('http')
-var os = require('os');
-
 var app = require('../app');
 
 app.set('port', process.env.PORT || 3000);
 
-var _userCluster = function(callback) {
-  var numCPUs = os.cpus().length;
-  if (cluster.isMaster) {
-    for (var i = 0; i < numCPUs; i++) {
-      cluster.fork();
-    }
-
-    cluster.on('exit', function(worker, code, signal) {
-      console.log('worker ' + worker.process.pid + ' died');
-    });
-  } else {
-    callback();
-  }
-};
-
-if (process.env.NODE_ENV == 'production') {
-  _userCluster(function() {
-    http.createServer(app).listen(app.get('port'), function() {
-      debug('Express server listening on port ' + this.address().port);
-    });
-  });
-} else {
-  http.createServer(app).listen(app.get('port'), function() {
-    debug('Express server listening on port ' + this.address().port);
-  });
-}
+var server = app.listen(app.get('port'), function() {
+  debug('Express server listening on port ' + server.address().port);
+});
