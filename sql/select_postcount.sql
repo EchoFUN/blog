@@ -1,1 +1,1 @@
-select count(*) count from post;
+select count(*) count from post where visiable = 1;

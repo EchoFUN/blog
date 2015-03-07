@@ -1,1 +1,1 @@
-select * from post order by post.date desc limit <%= start %>, <%= end %>;
+select * from post where visiable = 1 order by post.date desc limit <%= start %>, <%= end %>;
