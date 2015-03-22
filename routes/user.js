@@ -10,26 +10,19 @@ var express = require('express');
 var async = require('async');
 var router = express.Router();
 
-var menuModel = require('../model/menu');
-var userModel = require('../model/user');
+var menuModel = require('../model/menu'), userModel = require('../model/user');
 var utils = require('../utils/utils');
 
-
 router.get('/login', function (req, resp) {
-
   if (req.session.user) {
     resp.redirect('/');
   } else {
-
     menuModel.getMenusAll(function (err, menus) {
-
       resp.render('login', {
         menus: menus,
         url: req.url
       });
-
     });
-
   }
 });
 
@@ -47,8 +40,14 @@ router.post('/login', function (req, resp) {
       resp.redirect('/');
     }
   });
+});
 
-
+router.get('/status', function(req, resp) {
+  if (req.session.user) {
+    resp.end('I am logined as ' + req.session.name + '.');
+  } else {
+    resp.redirect('/user/login');
+  }
 });
 
 module.exports = router;
