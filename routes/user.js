@@ -18,7 +18,7 @@ router.get('/login', function (req, resp) {
     resp.redirect('/');
   } else {
     menuModel.getMenusAll(function (err, menus) {
-      resp.render('login', {
+      resp.render('user/login', {
         menus: menus,
         url: req.url
       });
