@@ -1,0 +1,25 @@
+<% var javascript = 'login'; %>
+<% var css = 'login'; %>
+
+<% // 引入头部文件 %>
+<% include common/header %>
+
+  <div class="login-box">
+    <form method="post">
+      <div class="field">
+        <label class="txt">用户登录</label>
+      </div>
+      <div class="field">
+        <input type="text" name="user" />
+      </div>
+      <div class="field">
+        <input type="text" name="password" />
+      </div>
+      <div class="field submit-field">
+        <input type="submit" class="borderradius-3" />
+      </div>
+    </form>
+  </div>
+
+<% // 引入尾部文件 %>
+<% include common/footer %>

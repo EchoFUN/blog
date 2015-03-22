@@ -14,8 +14,13 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var map = require('./map');
 var dblogger = require('./utils/dblogger');
+var session = require('express-session')
 
 var app = express();
+app.use(session({
+  name: 'SID',
+  secret: 'keyboard cat'
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

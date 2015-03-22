@@ -8,11 +8,14 @@
 
 var index = require('./routes/index');
 var post = require('./routes/post');
+var user = require('./routes/user');
 
 module.exports = function(app) {
   
   
   app.use('/', index);
   app.use('/post', post);
+  
+  app.use('/user', user);
   
 };

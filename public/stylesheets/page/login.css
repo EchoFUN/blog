@@ -1,0 +1,54 @@
+/**
+ *
+ *
+ *
+ */
+
+@import url("./index.css");
+
+#body {
+  background: none;
+}
+
+.login-box {
+  width: 308px;
+  border: 1px solid #dedede;
+  background-color: #fff;
+  padding: 30px;
+  margin: 50px auto 100px;
+}
+
+.login-box input {
+  width: 300px;
+  height: 24px;
+}
+
+.login-box .txt {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.login-box .field {
+  margin-top: 5px;
+}
+
+.login-box .submit-field {
+  margin-top: 15px;
+  text-align: right;
+}
+
+.login-box .submit-field input {
+  background-color: #ff6000;
+  color: #fff;
+  border: 0;
+  height: 34px;
+  display: inline-block;
+  line-height: 34px;
+  padding: 0 20px;
+  width: 100px;
+  text-align: center;
+}
+
+.login-box .submit-field input:hover {
+  background-color: #cd5500;
+}

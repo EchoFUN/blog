@@ -1,6 +1,8 @@
-          <div class="sidebar fr">
-            <% include widgets %>
-          </div>
+          <% if (typeof url != 'undefined' && url.indexOf('/login') == -1) { %>
+            <div class="sidebar fr">
+              <% include widgets %>
+            </div>
+          <% } %>
         </div>
       </div>
       <div id="footer">
