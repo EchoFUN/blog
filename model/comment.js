@@ -42,3 +42,8 @@ module.exports.getlastComment = function(pid, author, content, callback) {
   
   dbConnection.query(sqlContent, callback);
 };
+
+// 获取尚未进行评论的文章
+module.exports.getUncomment = function(callback) {
+  dbConnection.query(utils.getSQLContent('uncomment'), callback);
+};

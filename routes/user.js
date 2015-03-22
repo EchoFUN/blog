@@ -10,7 +10,7 @@ var express = require('express');
 var async = require('async');
 var router = express.Router();
 
-var menuModel = require('../model/menu'), userModel = require('../model/user');
+var menuModel = require('../model/menu'), userModel = require('../model/user'), commentModel = require('../model/comment');
 var utils = require('../utils/utils');
 
 router.get('/login', function (req, resp) {
@@ -44,7 +44,9 @@ router.post('/login', function (req, resp) {
 
 router.get('/status', function(req, resp) {
   if (req.session.user) {
-    resp.end('I am logined as ' + req.session.name + '.');
+    commentModel.getUncomment(function(err, count) {
+      resp.end('You are logined as ' + req.session.user.name + '. ' + count[0].count + ' comments are unapproved.');
+    })
   } else {
     resp.redirect('/user/login');
   }
