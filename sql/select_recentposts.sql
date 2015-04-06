@@ -1,1 +1,1 @@
-select id, title from post order by date desc limit 0, 10;
+select id, title from post order by date desc limit 0, 10 where visiable = 1;
