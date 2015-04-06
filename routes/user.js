@@ -37,7 +37,7 @@ router.post('/login', function (req, resp) {
         id: exist.id,
         name: user
       };
-      resp.redirect('/');
+      resp.redirect('/user/status');
     }
   });
 });
