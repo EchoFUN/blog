@@ -1,1 +1,1 @@
-select * from post where id = "<%= postId %>" and visiable == 1 ;
+select * from post where id = "<%= postId %>" and visiable = 1;
