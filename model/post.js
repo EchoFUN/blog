@@ -31,6 +31,14 @@ module.exports.getPostById = function (postId, callback) {
   dbConnection.query(sqlContent, callback);
 };
 
+module.exports.getValidatePostById = function (postId, callback) {
+  var sqlContent = ejs.render(utils.getSQLContent('validatepostbyid'), {
+    postId : postId
+  });
+
+  dbConnection.query(sqlContent, callback);
+};
+
 // 获取所有的文章总数目
 module.exports.getPostCount = function(callback) {
   var sqlContent = utils.getSQLContent('postcount');

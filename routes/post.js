@@ -26,7 +26,8 @@ router.get('/', function (req, res) {
   
   // 获取这个当前的文章的数据信息（评论标签等等）
   var getCurrentPost = function(callback) {
-    postModel.getPostById(postId, callback);
+    // postModel.getPostById(postId, callback);
+    postModel.getValidatePostById(postId, callback);
   };
   
   var getCurretComments = function(callback) {
