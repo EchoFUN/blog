@@ -16,7 +16,7 @@ var dbConnection = require('../utils/db').getConnection();
 module.exports.getPostsAll = function (offset, count, callback) {
   var sqlContent = ejs.render(utils.getSQLContent('postall'), {
     start : offset,
-    end : offset + count
+    end : count
   });
 
   dbConnection.query(sqlContent, callback);
