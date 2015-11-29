@@ -14,12 +14,8 @@
       if (typeof post != 'undefined') {
         siteTitle = post.title;
       }
-      
-      if (siteTile.trim().length == 0) {
-        siteTile = '音韵码工';
-      }
     %>
-    <title><%= siteTitle %></title>		
+    <title><%= siteTitle || '音韵码工' %></title>		
     <script type="text/javascript">
       var Global = {};
       Global.BOOTSTAMP = new Date().getTime();
