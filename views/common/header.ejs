@@ -12,7 +12,7 @@
     <% 
       var siteTitle = ''; 
       if (typeof post != 'undefined') {
-        siteTitle = post.title;
+        siteTitle = post.title || '音韵码工';
       }
     %>
     <title><%= siteTitle %></title>		
