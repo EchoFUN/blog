@@ -9,13 +9,13 @@
 var index = require('./routes/index');
 var post = require('./routes/post');
 var user = require('./routes/user');
+var api = require('./routes/api');
 
 module.exports = function(app) {
-  
   
   app.use('/', index);
   app.use('/post', post);
   
   app.use('/user', user);
-  
+  app.use('/api', api);  
 };
