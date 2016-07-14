@@ -15,8 +15,8 @@ var dbConnection = require('../utils/db').getConnection();
 // 获取所有的文章的信息
 module.exports.getPostsAll = function (offset, count, callback) {
   var sqlContent = ejs.render(utils.getSQLContent('postall'), {
-    start : offset,
-    end : count
+    start: offset,
+    end: count
   });
 
   dbConnection.query(sqlContent, callback);
@@ -25,7 +25,7 @@ module.exports.getPostsAll = function (offset, count, callback) {
 // 获取某篇文章的具体内容
 module.exports.getPostById = function (postId, callback) {
   var sqlContent = ejs.render(utils.getSQLContent('postbyid'), {
-    postId : postId
+    postId: postId
   });
 
   dbConnection.query(sqlContent, callback);
@@ -33,27 +33,27 @@ module.exports.getPostById = function (postId, callback) {
 
 module.exports.getValidatePostById = function (postId, callback) {
   var sqlContent = ejs.render(utils.getSQLContent('validatepostbyid'), {
-    postId : postId
+    postId: postId
   });
 
   dbConnection.query(sqlContent, callback);
 };
 
 // 获取所有的文章总数目
-module.exports.getPostCount = function(callback) {
+module.exports.getPostCount = function (callback) {
   var sqlContent = utils.getSQLContent('postcount');
-  
+
   dbConnection.query(sqlContent, callback);
 };
 
 // 获取所有的归档的文章
 // 结构化当前的日期格式
-var structArchives = function(archivesData) {
+var structArchives = function (archivesData) {
   var originalData = [];
-  for(var i = 0; i < archivesData.length; i++) {
+  for (var i = 0; i < archivesData.length; i++) {
     originalData.push(new Date(+archivesData[i].date));
   }
-  
+
   var archives = [];
   for (var i = 0; i < originalData.length; i++) {
     var currentDate = originalData[i];
@@ -71,27 +71,27 @@ var structArchives = function(archivesData) {
     }
     if (!hasDate) {
       archives.push({
-        full : currentDate,
-        summary : date
+        full: currentDate,
+        summary: date
       });
     }
   }
   return archives;
 };
 
-module.exports.getArchives = function(callback) {
+module.exports.getArchives = function (callback) {
   var sqlContent = utils.getSQLContent('archives');
-  
-  dbConnection.query(sqlContent, function(err, content) {
+
+  dbConnection.query(sqlContent, function (err, content) {
     callback(err, structArchives(content));
   });
 };
 
 // 获取最近的十篇文章的标题
-module.exports.getRecentPosts = function(callback) {
+module.exports.getRecentPosts = function (callback) {
   var sqlContent = utils.getSQLContent('recentposts');
-  
-  dbConnection.query(sqlContent, function(err, content) {
+
+  dbConnection.query(sqlContent, function (err, content) {
     for (var i in content) {
       var title = content[i].title;
       content[i].shortTitle = title && (utils.countChars(title, 36));
