@@ -15,7 +15,7 @@ var utils = require('../utils/utils');
 
 router.get('/login', function (req, resp) {
   if (req.session.user) {
-    resp.redirect('/');
+    resp.redirect('/user/status');
   } else {
     menuModel.getMenusAll(function (err, menus) {
       resp.render('user/login', {
@@ -30,7 +30,7 @@ router.post('/login', function (req, resp) {
   var user = req.body.user, password = req.body.password;
 
   userModel.checkUser(user, utils.getMD5(password), function (err, exist) {
-    if (exist[0].exist === 0) {
+    if (exist.length === 0) {
       resp.redirect('/user/login');
     } else {
       req.session.user = {

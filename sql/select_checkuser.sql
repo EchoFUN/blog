@@ -1,1 +1,1 @@
-select count(*) exist, id from user where name = '<%= user %>' and password = '<%= password %>';
+select id from user where name = '<%= user %>' and password = '<%= password %>';
