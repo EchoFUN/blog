@@ -45,7 +45,7 @@ router.post('/login', function (req, resp) {
 router.get('/status', function(req, resp) {
   if (req.session.user) {
     commentModel.getUncomment(function(err, count) {
-      resp.end('You are logined as ' + req.session.user.name + '. ' + count[0].count + ' comments are unapproved.');
+      resp.end('You are logined as ' + req.session.user.name + '. ' + count[0].count + ' cmts are unapproved.');
     })
   } else {
     resp.redirect('/user/login');
