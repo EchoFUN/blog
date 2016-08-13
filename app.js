@@ -32,7 +32,7 @@ app.use(function(req, resp, next) {
   resp.removeHeader('X-Powered-By');
   next();
 });
-app.use(logger('dev'));
+// app.use(logger('dev'));
 app.use(dblogger());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
