@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "test": "node-dev ./bin/www",
-    "start": "node_modules/pm2/bin/pm2 ecosystem"
+    "start": "./node_modules/pm2/bin/pm2 start ecosystem.config.js"
   },
   "dependencies": {
     "async": "^2.1.2",

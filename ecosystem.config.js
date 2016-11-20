@@ -8,7 +8,7 @@ module.exports = {
     // First application
     {
       name: 'yymg',
-      scripts: './bin/www',
+      script: './bin/www',
       env: {
         "NODE_ENV": "production",
       },
