@@ -26,7 +26,7 @@ module.exports = function() {
       var ip = req.ip;
       var url = req.url;
       
-      modelLog.logger(vector, utc, referer, ip, url, function(err, contnt) {
+      modelLog.logger(vector, utc, '', ip, url, function(err, contnt) {
         if (err) {
           throw err;
         }
