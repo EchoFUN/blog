@@ -13,7 +13,8 @@ var dbConfig = {
   // 账户名称，以及密码
   'user': 'root',
   
-  'password': '123456',
+  // 'password': '123456',
+  'password': '',
 
   // 数据库连接名称
   'database': 'yymg',
