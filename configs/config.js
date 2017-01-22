@@ -10,7 +10,7 @@ module.exports = {
   site : {
 
     // 网站名称
-    SITE_NAME : '音韵码工',
+    SITE_NAME : '我是徐蜀黍',
 
     // 网站最基本的URL地址
     // SITE_BASE_URL : 'http://botobe.net',
@@ -27,5 +27,5 @@ module.exports = {
     PAGE_COUNT : 10
   }, 
  
-  SESSION_SECRET : '音韵码工'
+  SESSION_SECRET : '我是徐蜀黍'
 }; 
